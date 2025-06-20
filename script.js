@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ele deve ser o link BASE do Ngrok (sem /radio ou /status-json.xsl)
     // Ex: https://882a-2804-29b8-50d7-74f4-657b-4eaf-66ff-c814.ngrok-free.app
     // ##################################################################
-    const statusHtmlUrl = 'https://882a-2804-29b8-50d7-74f4-657b-4eaf-66ff-c814.ngrok-free.app';
+    const statusHtmlUrl = 'https://f058-2804-29b8-50d7-74f4-dbb5-457e-a941-9b3e.ngrok-free.app';
 
     let currentArtist = '';
     let currentTitle = '';
