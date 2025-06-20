@@ -1,0 +1,238 @@
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;700&display=swap');
+
+:root {
+    --text-color-pencil: rgba(74, 74, 74, 0.9); /* Preto quase cinza com transparência */
+    --accent-color-light: #5c7c8c; /* Azul/cinza suave para destaque */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff; /* Fundo branco caso a imagem não carregue */
+    color: var(--text-color-pencil);
+    min-height: 100vh;
+    overflow: hidden; /* Evita scrollbars */
+    position: relative; /* Base para os elementos com position: absolute */
+    width: 100%; /* Garante que body ocupe toda a largura */
+    height: 100vh; /* Garante que body ocupe toda a altura da viewport */
+}
+
+/* Pseudo-elemento para a imagem de fundo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ################################################################## */
+    /* !!! CORREÇÃO AQUI: USANDO gif_vitrola.webp !!! */
+    background-image: url('images/gif_vitrola.gif'); /* CAMINHO E EXTENSÃO CORRETOS AGORA */
+    /* ################################################################## */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px; /* Borda arredondada se quiser */
+    overflow: hidden; /* Para garantir que o conteúdo interno não vaze */
+}
+
+/* --- Elementos de Posicionamento Fixo --- */
+
+/* Cabeçalho (Título e Subtítulo) */
+.header-fixed {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 10;
+    /* BORDA TEMPORÁRIA PARA DEPURAR (ATIVE SE NECESSÁRIO): */
+    /* border: 1px solid red; */
+}
+
+.header-content h1 {
+    font-family: 'Caveat', cursive;
+    color: var(--text-color-pencil);
+    font-size: 2.2em;
+    margin-bottom: 0;
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.header-content p {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-top: 0;
+}
+
+/* Informações da Música (Artista + Título) */
+.song-info-fixed {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 300px;
+    text-align: center;
+    z-index: 2;
+    color: var(--text-color-pencil);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    /* BORDA TEMPORÁRIA PARA DEPURAR (ATIVE SE NECESSÁRIO): */
+    /* border: 1px solid blue; */
+}
+
+.song-info-fixed.visible {
+    opacity: 0.9;
+}
+
+.song-info-fixed p {
+    margin: 0;
+}
+
+.current-artist {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--text-color-pencil);
+    margin-bottom: 2px;
+}
+
+.current-title {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--text-color-pencil);
+    line-height: 1.2;
+}
+
+/* Player de Áudio */
+.audio-player-container-fixed {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 60%;
+    max-width: 250px;
+    /* background-color: rgba(255, 255, 255, 0.4);
+    /* border-radius: 5px;
+    padding: 2px 5px;
+    /* box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    /* BORDA TEMPORÁRIA PARA DEPURAR (ATIVE SE NECESSÁRIO): */
+    /* border: 1px solid green; */
+}
+
+#radio-audio {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    outline: none;
+}
+
+/* Estilização dos controles do player (pode não funcionar 100% em todos os navegadores) */
+#radio-audio::-webkit-media-controls-panel {
+    background-color: transparent;
+}
+#radio-audio::-webkit-media-controls-play-button {
+    color: var(--text-color-pencil);
+}
+#radio-audio::-webkit-media-controls-current-time-display,
+#radio-audio::-webkit-media-controls-time-remaining-display {
+    color: var(--text-color-pencil);
+    font-family: 'Architects Daughter', cursive;
+}
+#radio-audio::-webkit-media-controls-timeline {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+#radio-audio::-webkit-media-controls-volume-slider {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+/* Rodapé (Nos Acompanhe) */
+.footer-fixed {
+    position: absolute;
+    bottom: 2%; /* Mantido mais baixo como você pediu */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 10;
+    /* BORDA TEMPORÁRIA PARA DEPURAR (ATIVE SE NECESSÁRIO): */
+    /* border: 1px solid purple; */
+}
+
+.footer-content h2 {
+    font-family: 'Caveat', cursive;
+    color: var(--text-color-pencil);
+    font-size: 1.6em;
+    margin-bottom: 5px;
+}
+
+.footer-content p {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1em;
+    opacity: 0.8;
+    margin-top: 0;
+}
+
+.footer-content a {
+    color: var(--accent-color-light);
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.footer-content a:hover {
+    color: #4a6a7a;
+}
+
+.footer-content .copyright {
+    font-size: 0.7em;
+    margin-top: 10px;
+    opacity: 0.6;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .header-fixed { top: 3%; }
+    .header-content h1 { font-size: 2em; }
+    .header-content p { font-size: 0.8em; }
+
+    .song-info-fixed { top: 40%; width: 90%; }
+    .current-artist { font-size: 1.2em; }
+    .current-title { font-size: 1.6em; }
+
+    .audio-player-container-fixed { top: 60%; width: 70%; }
+
+    .footer-fixed { bottom: 3%; }
+    .footer-content h2 { font-size: 1.4em; }
+    .footer-content p { font-size: 0.9em; }
+}
+
+@media (max-width: 480px) {
+    .header-fixed { top: 2%; }
+    .header-content h1 { font-size: 1.8em; }
+    .header-content p { font-size: 0.7em; }
+
+    .song-info-fixed { top: 38%; width: 95%; }
+    .current-artist { font-size: 1em; }
+    .current-title { font-size: 1.4em; }
+
+    .audio-player-container-fixed { top: 58%; width: 80%; }
+
+    .footer-fixed { bottom: 2%; }
+    .footer-content h2 { font-size: 1.2em; }
+    .footer-content p { font-size: 0.8em; }
+}
